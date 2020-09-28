@@ -1,18 +1,6 @@
 # Test-ABC
 testKiemTra
-#
-package com.example.myapplication;
-
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.app.Activity;
-import android.content.Intent;
-import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.TextView;
+#View 1
 
 public class MainActivity extends AppCompatActivity {
 
@@ -75,23 +63,7 @@ public class MainActivity extends AppCompatActivity {
     }
 }
 
-View 2
-
-package com.example.myapplication;
-
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.app.Activity;
-import android.content.Intent;
-import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.TextView;
-
-import java.util.Date;
-
-import javax.xml.transform.Result;
+#View 2
 
 public class Main2Activity extends AppCompatActivity {
 
