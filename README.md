@@ -112,3 +112,56 @@ public class Main2Activity extends AppCompatActivity {
         super.onBackPressed();
     }
 }
+# GiuaKy
+#Xử lý ghi dữ liệu vào bộ nhớ trong
+----------------------------------------------------------------------
+OutputStream os = openFileOutput("FileName", MODE_APPEND/MODE_PRIVATE);
+String str = "Dữ liệu cần ghi";
+os.write(str.getBytes());
+os.close();
+#Xử lý đọc dữ liệu từ bộ nhớ trong 
+-----------------------------------------------------------------------
+FileInputStream fis = openFileInput("fileName");
+BufferedReader br = new BufferedReader(new InputStreamReader(fis));
+StringBuffer data = new StringBuffer();
+String line = "";
+while ((line = br.readLine()) != null) {
+ data. append(line).append("\n");
+}
+#Xử lý ghi dữ liệu vào bộ nhớ ngoài
+-----------------------------------------------------------------------
+File sdcard = Environment.getExternalStorageDirectory();
+File file = new File(sdcard,"FileName");
+OutputStream os = new FileOutputStream(file);
+String str = "Dữ liệu muốn ghi";
+os.write(str.getBytes());
+os.close();
+#Xử lý đọc dữ liệu từ bộ nhớ ngoài
+-----------------------------------------------------------------------
+File sdcard = Environment.getExternalStorageDirectory();
+File file = new File(sdcard,"FileName");
+BufferedReader br = new BufferedReader(new FileReader(file));
+String line;
+//Đọc dữ liệu từ file, nội dung sau khi đọc sẽ chứa trong biến content
+StringBuilder content = new StringBuilder();
+while ((line = br.readLine()) != null) {
+ content.append(line);
+ content.append('\n');
+}
+br.close();
+#Shared Preferences
+-------------------------------------------------------------------
+SharedPreferences sp = getSharedPreferences("FileName", Mode);
+1	MODE_APPEND Nối preferences mới với preferences đã tồn tại
+2	MODE_PRIVATE Chỉ được truy cập cục bộ
+3	MODE_WORLD_READABLE Chế độ này cho phép ứng dụng khác đọc preferences
+4	MODE_WORLD_WRITEABLE Chế độ này cho phép ứng dụng khác ghi preferences
+//Tạo đối tượng SharedPreferences
+SharedPreferences sp = getSharedPreferences("FileName", Mode);
+SharedPreferences.Editor editor = sp.edit();
+//Lưu dữ liệu
+editor.putX(key, value); //X là kiểu dữ liệu
+//Hoàn thành
+editor.commit();
+//Đọc dữ liệu
+sp.getX(key, default); //X là kiểu dữ liệu
